@@ -1,0 +1,19 @@
+name: variant-caller
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - python=3.10
+  - snakemake>=7.32
+  - bwa-mem2=2.2.1
+  - samtools=1.17
+  - bcftools=1.17
+  - gatk4=4.4.0.0
+  - picard=3.0.0
+  - fastqc=0.12.1
+  - multiqc=1.15
+  - trimmomatic=0.39
+  - vep=110.1
+  - snpeff=5.1
+  - pandas
+  - pytest
