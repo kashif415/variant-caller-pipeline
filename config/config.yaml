@@ -1,0 +1,35 @@
+samples: "config/samples.tsv"
+
+reference:
+  fasta: "resources/GRCh38/GRCh38.fa"
+  dict: "resources/GRCh38/GRCh38.dict"
+  known_sites:
+    - "resources/GRCh38/dbsnp_146.vcf.gz"
+    - "resources/GRCh38/Mills_1000G_indels.vcf.gz"
+    - "resources/GRCh38/1000G_phase1.snps.vcf.gz"
+  intervals: "resources/GRCh38/wgs_calling_regions.interval_list"
+
+params:
+  trimmomatic:
+    adapters: "TruSeq3-PE-2.fa"
+    leading: 3
+    trailing: 3
+    slidingwindow: "4:15"
+    minlen: 36
+  vqsr:
+    snp_tranches: [100.0, 99.9, 99.0, 90.0]
+    indel_tranches: [100.0, 99.0, 95.0, 90.0]
+
+annotation:
+  vep_cache: "resources/vep_cache"
+  species: "homo_sapiens"
+  assembly: "GRCh38"
+  clinvar: "resources/clinvar.vcf.gz"
+
+somatic:
+  enabled: false
+  panel_of_normals: "resources/1000g_pon.hg38.vcf.gz"
+
+resources:
+  mem_mb_default: 8000
+  runtime_default: 240
